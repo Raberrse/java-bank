@@ -3,9 +3,9 @@ package org.delta.bank.account;
 import org.delta.bank.person.Owner;
 
 public class BaseBankAccount {
-    private Owner owner;
-    private String bankAccountNumber;
-    private double balance;
+    protected Owner owner;
+    protected String bankAccountNumber;
+    protected double balance;
     public BaseBankAccount(
             Owner owner,
             String bankAccountNumber,

@@ -1,11 +1,13 @@
 package org.delta.bank.moneyTransfer;
 
 import org.delta.bank.account.BaseBankAccount;
+import org.delta.bank.feeCalculation.FeeCalculationService;
 import org.delta.bank.validation.ValidationService;
 
 public class MoneyTransferService {
 
     ValidationService validationService = new ValidationService();
+    FeeCalculationService feeCalculationService = new FeeCalculationService();
 
     public void transferMoney(
             BaseBankAccount sourceAccount,
@@ -18,7 +20,9 @@ public class MoneyTransferService {
                value
        );
 
-        sourceAccount.setBalance(sourceAccount.getBalance() - value);
+       double fee = feeCalculationService.calculateFee(sourceAccount, value);
+
+        sourceAccount.setBalance(sourceAccount.getBalance() - value - fee);
         destinationAccount.setBalance(destinationAccount.getBalance() + value);
     }
 
@@ -32,6 +36,8 @@ public class MoneyTransferService {
                 value
         );
 
-        sourceAccount.setBalance(sourceAccount.getBalance() - value);
+        double fee = feeCalculationService.calculateFee(sourceAccount, value);
+
+        sourceAccount.setBalance(sourceAccount.getBalance() - value - fee);
     }
 }
