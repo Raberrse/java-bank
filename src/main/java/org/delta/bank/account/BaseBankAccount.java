@@ -6,6 +6,7 @@ public class BaseBankAccount {
     protected Owner owner;
     protected String bankAccountNumber;
     protected double balance;
+
     public BaseBankAccount(
             Owner owner,
             String bankAccountNumber,
@@ -16,10 +17,10 @@ public class BaseBankAccount {
         this.bankAccountNumber = bankAccountNumber;
         this.balance = balance;
     }
-    public double getBalance() {
-        return balance;
-    }
     public void setBalance(double value) {
         this.balance = value;
+    }
+    public double getBalance() {
+        return balance;
     }
 }

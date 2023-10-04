@@ -2,8 +2,8 @@ package org.delta.bank.person;
 
 public class Owner {
 
-    private String firstName;
-    private String lastName;
+    private final String firstName;
+    private final String lastName;
 
     public Owner(
             String firstName,

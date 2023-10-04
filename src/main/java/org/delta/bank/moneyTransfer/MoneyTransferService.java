@@ -20,7 +20,7 @@ public class MoneyTransferService {
                value
        );
 
-       double fee = feeCalculationService.calculateFee(sourceAccount, value);
+        double fee = feeCalculationService.calculateFee(sourceAccount, value);
 
         sourceAccount.setBalance(sourceAccount.getBalance() - value - fee);
         destinationAccount.setBalance(destinationAccount.getBalance() + value);
