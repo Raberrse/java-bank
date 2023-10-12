@@ -23,4 +23,5 @@ public class BaseBankAccount {
     public double getBalance() {
         return balance;
     }
+    public Owner getOwner() { return owner; }
 }

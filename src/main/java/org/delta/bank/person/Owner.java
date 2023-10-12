@@ -17,8 +17,10 @@ public class Owner {
     public String getFirstName() {
         return firstName;
     }
-
     public String getLastName() {
         return lastName;
+    }
+    public String getFullName() {
+        return firstName + " " + lastName;
     }
 }

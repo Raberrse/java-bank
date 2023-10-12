@@ -2,8 +2,8 @@ package org.delta.bank.account;
 
 import org.delta.bank.person.Owner;
 
-public class StudentBankAccount extends BaseBankAccount implements SavingsBankAccount{
-    public StudentBankAccount(
+public class SaveBankAccount extends BaseBankAccount implements SavingsBankAccount {
+    public SaveBankAccount(
             Owner owner,
             String bankAccountNumber,
             double balance
@@ -11,4 +11,5 @@ public class StudentBankAccount extends BaseBankAccount implements SavingsBankAc
 
         super(owner, bankAccountNumber, balance);
     }
+
 }
