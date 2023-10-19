@@ -17,11 +17,20 @@ public class BaseBankAccount {
         this.bankAccountNumber = bankAccountNumber;
         this.balance = balance;
     }
+
     public void setBalance(double value) {
         this.balance = value;
     }
+
     public double getBalance() {
         return balance;
     }
-    public Owner getOwner() { return owner; }
+
+    public Owner getOwner() {
+        return owner;
+    }
+
+    public String getNumber(){
+        return bankAccountNumber;
+    }
 }
