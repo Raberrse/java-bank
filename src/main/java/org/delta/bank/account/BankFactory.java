@@ -1,12 +1,13 @@
 package org.delta.bank.account;
 
+import com.google.inject.Inject;
 import org.delta.bank.logger.LogService;
 import org.delta.bank.person.Owner;
 
 
 public class BankFactory {
-    private LogService logService;
-    private BankAccountNumberGenerator bankAccountNumberGenerator;
+    @Inject private LogService logService;
+    @Inject private BankAccountNumberGenerator bankAccountNumberGenerator;
 
     public BankFactory(){
         this.logService = new LogService();

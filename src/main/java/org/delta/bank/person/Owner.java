@@ -1,9 +1,10 @@
 package org.delta.bank.person;
 
-public class Owner {
+import com.google.inject.Inject;
 
-    private final String firstName;
-    private final String lastName;
+public class Owner {
+    @Inject private final String firstName;
+    @Inject private final String lastName;
 
     public Owner(
             String firstName,

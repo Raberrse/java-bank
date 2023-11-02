@@ -1,9 +1,10 @@
 package org.delta.bank.person;
 
+import com.google.inject.Inject;
 import org.delta.bank.print.PrintService;
 
 public class OwnerFactory {
-    private final PrintService printService;
+    @Inject private final PrintService printService;
 
     public OwnerFactory() {
         this.printService = new PrintService();

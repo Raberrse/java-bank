@@ -9,17 +9,13 @@ public class ConsoleLogger implements Logger{
     public  void log(BaseBankAccount input){
 
         if(input instanceof StudentBankAccount){
-            System.out.println("StudentBankAccount Balance " + input.getBalance()  + " name - " + input.getOwner().getFirstName() );
-            return;
+            System.out.println("StudentBankAccount Balance: " + input.getBalance()  + ", name: " + input.getOwner().getFirstName() );
         }
-
-        if(input instanceof SaveBankAccount){
-            System.out.println("SavingsBankAccount Balance " + input.getBalance()  + " name - " + input.getOwner().getFirstName());
-            return;
+        else if (input instanceof SaveBankAccount){
+            System.out.println("SavingsBankAccount Balance: " + input.getBalance()  + ", name: " + input.getOwner().getFirstName());
         }
-
-        if(input instanceof BaseBankAccount) {
-            System.out.println("BaseBankAccount Balance " + input.getBalance() + " name - " + input.getOwner().getFirstName());
+        else {
+            System.out.println("BaseBankAccount Balance: " + input.getBalance() + ", name: " + input.getOwner().getFirstName());
         }
     }
 

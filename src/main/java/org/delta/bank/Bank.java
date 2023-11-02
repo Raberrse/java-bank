@@ -1,5 +1,6 @@
 package org.delta.bank;
 
+import com.google.inject.Inject;
 import org.delta.bank.account.*;
 import org.delta.bank.logger.LogService;
 import org.delta.bank.moneySavings.SavingsUpdate;
@@ -10,22 +11,19 @@ import org.delta.bank.person.OwnerFactory;
 import java.util.Map;
 
 public class Bank {
-//    private MoneyTransferService moneyTransferService;
-//    private PrintService printService;
-//
-//    public Bank() {
-//        this.moneyTransferService = new MoneyTransferService();
-//        this.printService = new PrintService();
-//    }
+    @Inject private MoneyTransferService moneyTransferService;
+    @Inject private AccountService accountService;
+    @Inject private OwnerFactory ownerFactory;
+    @Inject private LogService logger;
 
+    public Bank() {
 
+    }
 
     public void run() throws Exception {
-        LogService logger = new LogService();
-
-        OwnerFactory ownerFactory = new OwnerFactory();
-        AccountService accountService = new AccountService();
-        BankFactory bankFactory = new BankFactory();
+        logger = new LogService();
+        ownerFactory = new OwnerFactory();
+        accountService = new AccountService();
 
         Owner owner = ownerFactory.createOwner(
                 "Adam",
@@ -57,7 +55,7 @@ public class Bank {
         logger.log(bankAccount);
         logger.log(saveAccount);
 
-        MoneyTransferService moneyTransferService = new MoneyTransferService();
+        moneyTransferService = new MoneyTransferService();
         moneyTransferService.transferMoney(bankAccount, saveAccount, 250);
 
         logger.logMessage("After:");

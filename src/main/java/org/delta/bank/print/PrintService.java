@@ -1,10 +1,11 @@
 package org.delta.bank.print;
 
+import com.google.inject.Inject;
 import org.delta.bank.account.BaseBankAccount;
 
 public class PrintService {
 
-    private PrintInterface printService;
+    @Inject private PrintInterface printService;
 
     public PrintService() {
         this.printService = new ConsolePrintService();
