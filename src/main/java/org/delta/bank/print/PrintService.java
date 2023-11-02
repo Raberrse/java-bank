@@ -7,10 +7,6 @@ public class PrintService {
 
     @Inject private PrintInterface printService;
 
-    public PrintService() {
-        this.printService = new ConsolePrintService();
-    }
-
     public void printBankAccountBalance(BaseBankAccount bankAccount) {
         this.printService.printBankAccountBalance(bankAccount);
     }

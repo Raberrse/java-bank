@@ -9,10 +9,6 @@ public class BankFactory {
     @Inject private LogService logService;
     @Inject private BankAccountNumberGenerator bankAccountNumberGenerator;
 
-    public BankFactory(){
-        this.logService = new LogService();
-        this.bankAccountNumberGenerator = new BankAccountNumberGenerator();
-    }
 
     public BaseBankAccount createBaseBankAccount(Owner owner, int number){
         this.logService.logMessage("Debug... ");

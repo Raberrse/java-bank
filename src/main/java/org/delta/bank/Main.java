@@ -13,6 +13,9 @@ public class Main {
             bank.run();
         } catch (Exception e) {
             System.out.println("Error: " + e);
+            e.printStackTrace();
+            System.out.println("Error: " + e.getMessage());
+
         }
     }
 }

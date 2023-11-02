@@ -5,6 +5,7 @@ import org.delta.bank.account.*;
 import org.delta.bank.logger.LogService;
 import org.delta.bank.moneySavings.SavingsUpdate;
 import org.delta.bank.moneyTransfer.MoneyTransferService;
+import org.delta.bank.ownerJSONParser.OwnerJSONParserService;
 import org.delta.bank.person.Owner;
 import org.delta.bank.person.OwnerFactory;
 
@@ -15,16 +16,13 @@ public class Bank {
     @Inject private AccountService accountService;
     @Inject private OwnerFactory ownerFactory;
     @Inject private LogService logger;
+    @Inject private OwnerJSONParserService ownerJSONParserService;
 
     public Bank() {
 
     }
 
     public void run() throws Exception {
-        logger = new LogService();
-        ownerFactory = new OwnerFactory();
-        accountService = new AccountService();
-
         Owner owner = ownerFactory.createOwner(
                 "Adam",
                 "Papousek"
@@ -55,7 +53,6 @@ public class Bank {
         logger.log(bankAccount);
         logger.log(saveAccount);
 
-        moneyTransferService = new MoneyTransferService();
         moneyTransferService.transferMoney(bankAccount, saveAccount, 250);
 
         logger.logMessage("After:");
@@ -67,6 +64,8 @@ public class Bank {
         moneyTransferService.transferByATM(saveAccount, 100);
         logger.log(saveAccount);
 
+        ownerJSONParserService = new OwnerJSONParserService();
+        logger.logMessage(ownerJSONParserService.ParseToJSON(owner));
 
 
 //        System.out.println("FA: " + bankAccount.getBalance());
@@ -82,6 +81,5 @@ public class Bank {
 //        System.out.println(studentAccount.getBalance());
 //        moneyTransferService.transferMoney(studentAccount, saveAccount, 200);
 //        System.out.println(studentAccount.getBalance());
-
     }
 }

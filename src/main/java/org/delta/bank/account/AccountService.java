@@ -9,12 +9,11 @@ import java.util.Map;
 
 @Singleton
 public class AccountService {
-    @Inject private Map<String, BaseBankAccount> accounts;
+    private Map<String, BaseBankAccount> accounts;
     @Inject private BankFactory bankFactory;
 
     public AccountService(){
         this.accounts = new HashMap<>();
-        this.bankFactory = new BankFactory();
     }
 
     public BaseBankAccount createBasedBankAccount(Owner owner, int balance){
