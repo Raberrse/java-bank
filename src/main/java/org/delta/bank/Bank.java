@@ -41,7 +41,6 @@ public class Bank {
         Map<String, BaseBankAccount> accounts = accountService.getAccounts();
         for(Map.Entry<String, BaseBankAccount> entrySet : accountService.getAccounts().entrySet()){
             BaseBankAccount account = entrySet.getValue();
-            logger.log(account);
 
             if(account instanceof SavingsBankAccount){
                 SavingsUpdate savingsUpdate = new SavingsUpdate();
@@ -49,20 +48,12 @@ public class Bank {
             }
         }
 
-        logger.logMessage("Before:");
-        logger.log(bankAccount);
-        logger.log(saveAccount);
 
         moneyTransferService.transferMoney(bankAccount, saveAccount, 250);
 
-        logger.logMessage("After:");
-        logger.log(bankAccount);
-        logger.log(saveAccount);
 
         moneyTransferService.transferByATM(bankAccount, 250);
-        logger.log(bankAccount);
         moneyTransferService.transferByATM(saveAccount, 100);
-        logger.log(saveAccount);
 
         ownerJSONParserService = new OwnerJSONParserService();
         logger.logMessage(ownerJSONParserService.ParseToJSON(owner));
